@@ -4,23 +4,23 @@ import matplotlib.pyplot as plt
 from data import games
 
 #select attendance
-#attendance = games.loc[:,['year' == 'info','multi3' == 'attendance']]
-attendance = games.loc[:, ['year','multi3']]
+attendance = games.loc[(games['type'] == 'info') & (games['multi2'] == 'attendance'),['year','multi3']]
 
 #change columns
 attendance.columns = ['year','attendance']
 
 #convert to numeric
-#attendance.loc[:, 'column'] = pd.to_numeric(attendance.loc[:, 'column'])
+attendance.loc[:, 'attendance'] = pd.to_numeric(attendance.loc[:, 'attendance'])
 
 #plot graph
-#attendance.plot(x='year', y='attendance', figsize=(15, 7), kind='bar')
+attendance.plot(x='year', y='attendance', figsize=(15, 7), kind='bar')
 
 #add labels
-#plt.xlabel('Year')
-#plt.ylabel('Attendance')
-
-#plt.show()
+plt.xlabel('Year')
+plt.ylabel('Attendance')
 
 #draw the mean line
-#plt.axhline(attendance['attendance'].mean()): 'Mean', 'dashed', 'green'
+plt.axhline(y=attendance['attendance'].mean(), label='Mean', linestyle='--', color='green')
+
+plt.show()
+
