@@ -22,4 +22,4 @@ plt.ylabel('Attendance')
 plt.show()
 
 #draw the mean line
-plt.axhline(attendance['attendance'].mean()): 'Mean', 'dashed', 'green'
+#plt.axhline(attendance['attendance'].mean()): 'Mean', 'dashed', 'green'
